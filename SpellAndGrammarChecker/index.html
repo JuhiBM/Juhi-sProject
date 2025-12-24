@@ -11,10 +11,8 @@
         <h1>WORDWISE</h1>
         <h2>AI WRITING ASSISTANT</h2>
 
-        <!-- Text Input -->
         <textarea id="textInput" placeholder="Enter text here..."></textarea>
 
-        <!-- Tool Selector -->
         <div class="options">
             <select id="toolSelector">
                 <option value="spell_checker">Spell Checker</option>
@@ -29,11 +27,10 @@
                 <option value="translate_text">Translate Text</option>
                 <option value="title_generator">Title Generator</option>
                 <option value="blog_outline">Blog Outline Generator</option>
-                <option value="hashtag_generator">Hashtag Generator</option>  <!-- ✅ NEW OPTION -->
+                <option value="hashtag_generator">Hashtag Generator</option>
             </select>
         </div>
 
-        <!-- Language Selector (Only for Translation) -->
         <div class="language-selector" id="languageSelector" style="display: none;">
             <label for="targetLang">Select Target Language:</label>
             <select id="targetLang">
@@ -48,10 +45,8 @@
             </select>
         </div>
 
-        <!-- Process Button -->
         <button onclick="processText()">Process</button>
 
-        <!-- Output Result -->
         <div class="result">
             <h3>Result:</h3>
             <p id="output"></p>
@@ -61,4 +56,3 @@
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>
-
