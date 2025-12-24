@@ -3,20 +3,16 @@ function processText() {
     let selectedTool = document.getElementById("toolSelector").value;
     let targetLang = document.getElementById("targetLang").value;
     let outputElement = document.getElementById("output");
-
     if (text === "") {
         outputElement.innerHTML = "⚠️ Please enter some text.";
         return;
     }
-
     let formData = new URLSearchParams();
     formData.append("text", text);
     formData.append("option", selectedTool);
-
     if (selectedTool === "translate_text") {
         formData.append("target_lang", targetLang);
     }
-
     fetch("/process", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -50,7 +46,6 @@ function processText() {
             outputElement.innerHTML = formattedSynonyms;
         }
         else if (selectedTool === "hashtag_generator") {
-            // ✅ Properly format multiple hashtags
             if (data.result.length > 0) {
                 let hashtags = data.result.map(tag => `<span class="hashtag">${tag}</span>`).join(" ");
                 outputElement.innerHTML = `<b>Generated Hashtags:</b><br>${hashtags}`;
@@ -68,7 +63,6 @@ function processText() {
     });
 }
 
-// ✅ Show/Hide Language Dropdown for Translation
 document.getElementById("toolSelector").addEventListener("change", function() {
     let languageSelector = document.getElementById("languageSelector");
     languageSelector.style.display = (this.value === "translate_text") ? "block" : "none";
